@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Todo | Performance Audit</title>
+    <meta
+      name="description"
+      content="Project 8 - Enhance an existing Project"
+    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="assets/bass.css" rel="stylesheet" />
+    <link href="assets/style.css" rel="stylesheet" />
+    <link href="assets/github.css" rel="stylesheet" />
+    <link href="assets/split.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/nav.css" />
+  </head>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Todo App</a></li>
+      <li><a href="../documentation-codebase/index.html">Documentation</a></li>
+      <li>
+        <a href="../test/SpecRunner.html">Tests</a>
+      </li>
+      <li>
+        <a class="active" href="index.html">Performance Audit</a>
+      </li>
+    </ul>
+  </nav>
+  <body class="documentation m0">
+    <div class="flex">
+      <div id="split-left" class="overflow-auto fs0 height-viewport-100">
+        <div class="py1 px2">
+          <h3 class="mb0 no-anchor">Todo List | Performance Audit</h3>
+          <div class="mb1"><code></code></div>
+          <input
+            placeholder="Filter"
+            id="filter-input"
+            class="col12 block input"
+            type="text"
+          />
+          <div id="toc">
+            <ul class="list-reset h5 py1-ul">
+              <li>
+                <a
+                  href="#performance-audit"
+                  class="h5 bold black caps toggle-sibling"
+                >
+                  Performance Audit
+                  <span class="icon">▸</span>
+                </a>
+
+                <div class="toggle-target display-none">
+                  <ul class="list-reset py1-ul pl1">
+                    <li>
+                      <a href="#pa-intro" class="regular pre-open">
+                        Introduction
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#pa-competitor" class="regular pre-open">
+                        Competitor Site
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#pa-performance" class="regular pre-open">
+                        Performance Comparrison
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#pa-analysis" class="regular pre-open">
+                        Competitor Analysis: Load Times
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#pa-add-item" class="regular pre-open">
+                        Competitor Analysis: Add Item
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#pa-scaling" class="regular pre-open">
+                        Scaling Our Own Application
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <a href="#bug-fixes" class="h5 bold black caps toggle-sibling">
+                  Bug Fixes
+                  <span class="icon">▸</span>
+                </a>
+
+                <div class="toggle-target display-none">
+                  <ul class="list-reset py1-ul pl1">
+                    <li>
+                      <a href="#bf-intro" class="regular pre-open">
+                        Introduction
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#bf-1" class="regular pre-open">
+                        Bug #1
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#bf-2" class="regular pre-open">
+                        Bug #2
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#bf-3" class="regular pre-open">
+                        Bug #3
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="mt1 h6 quiet">
+            <a href="https://documentation.js.org/reading-documentation.html"
+              >Need help reading this?</a
+            >
+          </div>
+        </div>
+      </div>
+      <div id="split-right" class="relative overflow-auto height-viewport-100">
+        <div class="keyline-top-not py2">
+          <section class="py2 clearfix">
+            <h2 id="performance-audit" class="mt0">Performance Audit</h2>
+            <h4 id="pa-intro">Introduction</h4>
+            <p>
+              In order to scale up and also to improve the application, a
+              performance audit has been carried out to assess todos application
+              against a
+              <a href="http://todolistme.net/" target="_blank">
+                competitor site.</a
+              >
+              Information gleaned from the performance audit can inform our
+              decisions we make when scalling the application in the future.
+            </p>
+            <h4 id="pa-competitor">
+              A Look at a Competitor: <i>TodoListMe</i>
+            </h4>
+            <img
+              class="width-80"
+              src="assets/images/audit/todolistme-page.png"
+              alt="todolistme web page"
+            />
+            <p>
+              The website of <i>TodoListMe</i> features more functionality with
+              feature such as:
+            </p>
+            <ul>
+              <li>Assigning tasks to dates</li>
+              <li>
+                Task lists such as: <i>"Projects", "Things to do later"</i>
+              </li>
+              <li>Ability to drag and drop a task to a list</li>
+              <li>Animations</li>
+              <li>Ordering of the tasks by alphabet or top 3</li>
+              <li>Create new custom Lists</li>
+              <li>Ability to sync your todo list</li>
+              <li>View the todo list through a small remote window</li>
+              <li>Advertisement</li>
+            </ul>
+            <p>
+              Having extensive functionality is excelent, however all of these
+              features come at a cost regarding the performance of the website.
+              When scaling our application, we need to decide what features are
+              most important and how to impliment these features well with
+              minimal impact to the performance of the application.
+            </p>
+            <h4 id="pa-performance">Performance Comparrison</h4>
+            <p>
+              A performance audit was completed for both sites using Chromium
+              DevTools with an overiew of the results shown in the image below.
+              Both tests used an applied slow 4G connection and 4x slowdown of
+              the CPU. This is to replicate real life conditions a user might
+              have when accessing your site.
+            </p>
+            <div class="flex-container">
+              <p><i>todos(our site)</i></p>
+              <p><i>TodoListMe(competitor site)</i></p>
+            </div>
+            <img
+              class="width-100"
+              src="assets/images/audit/performance comparrison.png"
+              alt="performance comparrison"
+            />
+            <ul>
+              <li>
+                <b>First Contentful Paint</b> marks the time at which the first
+                text or image is painted.
+              </li>
+              <li>
+                <b>Speed Index</b> shows how quickly the contents of a page are
+                visibly populated
+              </li>
+              <li>
+                <b>Time to interactive</b> is the amount of time it takes for
+                the page to become fully interactive.
+              </li>
+              <li>
+                <b>First Meaningful Paint</b> measures when the primary content
+                of a page is visible.
+              </li>
+              <li>
+                <b>First CPU Idle</b> marks the first time at which the page's
+                main thread is quiet enough to handle input.
+              </li>
+              <li>
+                <b>The maximum potential First Input Delay</b> that your users
+                could experience is the duration, in milliseconds, of the
+                longest task.
+              </li>
+            </ul>
+            <p>
+              With a first meaningful paint time of 7900ms on TodoListMe vs
+              1400s for todos, the user is waiting a long time before they see
+              primary content on the page. This will frustrate the customer and
+              make it less likely the customer will use the application in the
+              future.
+            </p>
+            <p>
+              A maximum first input delay of 320ms will test users that do not
+              have patence and will result in some users leaving the site,
+              before using all that it offers.
+            </p>
+            <p>
+              The results also show us that our competitors site loads the
+              content of the site a lot slower than our site, with a much slower
+              time of 7900ms vs 2000ms before the site is interactive. This can
+              negatively affect the user experience of the site as it may appear
+              as the content is broken when in reality it has yet to load. It
+              could even cause a user to immediately leave your site as shown by
+              the bouncerate the graph below:
+            </p>
+            <img
+              class="width-80"
+              src="assets/images/audit/bouncerate.png"
+              alt="bouncerate"
+            />
+
+            <h4 id="pa-analysis">Competitor Analysis: Load Times</h4>
+            <p>
+              How could <i>TodoListMe's</i> site improve the performance of the
+              site?
+            </p>
+            <ul>
+              <li>
+                <b>Minify JS</b> - The CSS files have been minified which is
+                good, however the JS files have not and this could reduce the
+                size of the files by removing comments, whitespace, unused code,
+                using short variable and function names ect. This could save
+                ~260ms.
+              </li>
+              <li>
+                <b>Image formats</b> - JPEG 2000, JPEG XR, and WebP often
+                provide better compression than PNG or JPEG, which means faster
+                downloads and less data consumption. This could save ~1320ms.
+              </li>
+              <li>
+                <b>Reduce HTTP requests</b> - The site makes 32 JS file requests
+                with 20 external JS files. Combining some of these can reduce
+                the number of HTTP requests made
+              </li>
+              <li>
+                <b>Remove JQuery</b> - The JQuery file requests are responsible
+                for 592KB/2.9MB resources. By removing these files and using
+                plain JS, the load time would decrease.
+              </li>
+              <li>
+                <img
+                  src="assets/images/icons/icons.png"
+                  alt="iconsprites"
+                  style="float: right;"
+                />
+                <b>CSS Spites</b> - The site uses lots of .png files such as
+                <img src="assets/images/icons/top_sync.png" alt="" />. By
+                combining multiple images into a single image file, several
+                images can be loaded into a single HTTP request. Because
+                browsers limit the number of requests a site can make
+                concurrently, this can lead to decreased load times.
+              </li>
+              <li>
+                <b>Blocking First Paint</b> - Stop resources from blocking the
+                first paint of your page. Items such as the
+                <i>Abel-Regular, Architects Daughter</i> fonts and JQuery CSS
+                file. This can be achieved by defering non-critical JS/styles.
+                This could save ~1110ms.
+              </li>
+              <li>
+                <b>Take advantage of browser caching</b> - By storing certain
+                key files such as logos and images in a users browser, when a
+                user returns to the site they will not need to download these
+                files, therefor reducing the load time of the site.
+              </li>
+              <li>
+                <b>Background Image</b> - For users with slow internet
+                connection, the background <i>texture.png</i>
+                with a size of 129KB can cause the page to load slowly with
+                little benefit.
+              </li>
+              <li>
+                <b>Remove Advertisement</b> - The advertising on the site
+                increases the load time and this could be improved by removing
+                it, however if this is a revenue stream for the site, this might
+                not be an option.
+              </li>
+            </ul>
+            <p>
+              <i
+                >An estimation of the load time savings some of these
+                suggestions</i
+              >
+            </p>
+            <img
+              src="assets/images/audit/Improvements.png"
+              alt="performance improvements"
+            />
+
+            <h4 id="pa-add-item">Competitor Analysis: Add Item</h4>
+            <p>
+              Using Chromium DevTools we can analysis the difference in the
+              performance of the two applications when a user adds a new todo
+              item to the list. There are 3 main aspects that we can observe in
+              the performance: scripting time, rendering time and painting time.
+            </p>
+
+            <p><i>todos(our site) - performance when adding a new item</i></p>
+            <img src="assets/images/audit/todos-addItem.png" alt="" />
+            <img src="assets/images/audit/todos-addItem-2.png" alt="" />
+            <p>
+              <i
+                >TodoListMe(competitor site)- performance when adding a new
+                item</i
+              >
+            </p>
+            <img src="assets/images/audit/todolistme-addItem.png" alt="" />
+            <p><i>Comparison</i></p>
+            <table>
+              <tr>
+                <th><b>Aspect</b></th>
+                <th><b>todos (ms)</b></th>
+                <th><b>TodoListMe (ms)</b></th>
+              </tr>
+              <tr>
+                <th>Scripting</th>
+                <th>8ms</th>
+                <th>40ms</th>
+              </tr>
+              <tr>
+                <th>Rendering</th>
+                <th>3ms</th>
+                <th>5ms</th>
+              </tr>
+              <tr>
+                <th>Painting</th>
+                <th>2ms</th>
+                <th>1ms</th>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <th>12.63ms</th>
+                <th>49.79ms</th>
+              </tr>
+            </table>
+
+            <p>
+              This comparrison shows us that todos application loads and renders
+              adding an item much faster, particularly when it comes to the
+              scripting aspect. However it should be noted that todos is not
+              perfect and that other sites are able to achieve the same
+              functionality in less than half the time and that todos code could
+              be greatly optimized.
+            </p>
+
+            <h4 id="pa-scaling">Scaling our own application</h4>
+
+            <p>
+              When scaling our own application it will be important to only
+              include functionality that is important to our users, information
+              that could be found out by getting to know our users through
+              market research. By having a clear idea of what our users desire,
+              we can develop the application they need, not what we think they
+              want. By having this approach, we can develop a very efficient,
+              responsive application with the functionality most important to
+              our users.
+            </p>
+            <p>
+              When scaling our application; to optimize performance we should:
+            </p>
+            <ul>
+              <li>
+                <b>Minify Files</b> - To optimize the size of our files we
+                should minify them to reduce download and load times.
+              </li>
+              <li>
+                <b>Images Formats </b> - Use modern format files that provide
+                better compression.
+              </li>
+              <li>
+                <b>CSS Sprites</b> - Combine images into single files to reduce
+                the number of HTTP requests the user's browser will make and use
+                CSS sprites to access the individual images.
+              </li>
+              <li>
+                <b>Reduce Script Dependencies</b> - Try to avoid using an
+                external libary when there are more efficient options. E.g.
+                avoid using JQuery when plain JS is sufficient
+              </li>
+              <li>
+                <b>Use Async Where Possible</b> - To ensure you do not block the
+                view, use async to download dependencies, so that the browser
+                can complete other tasks while it is waiting for the dependency
+                to download.
+              </li>
+              <li>
+                <b>Cache Files</b> - To save users from downloading frequently
+                needed files e.g. icons and logos, have the users browsers save
+                certain files into their browser cache, so when they return to
+                the site they already have some files needed for the site to
+                load.
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="keyline-top-not py2">
+          <section class="py2 clearfix">
+            <h2 id="bug-fixes" class="mt0">
+              Bug Fixes
+            </h2>
+            <h4 id="bf-intro">Introduction</h4>
+            <p>
+              From the original release there have been a few bugs that affected
+              the functionality of the code. These bugs involved; a typo,
+              possible ID duplication and a missing id tag on a HTML element.
+              Details of the bugs can be found below:
+            </p>
+
+            <h4 id="bf-1">No.1 Bug Fix - Typo in the code</h4>
+            <p>
+              In line 95 of the code, the function is defined with the text:
+              <i>"adddItem"</i> which should be: <i>"addItem"</i> as the
+              function is called with the spelling throughout the rest of the
+              application. This was a very fatal bug that broke many aspects of
+              the application. The bug was solved by simply correcting the
+              spelling mistake
+            </p>
+            <p><i>Original code</i></p>
+            <img src="assets/images/bugfix1-broken.png" alt="code for bugfix" />
+            <p><i>Updated code</i></p>
+            <img src="assets/images/bugfix1-fix.png" alt="code for bugfix" />
+
+            <h4 id="bf-2">No.2 Bug Fix - Possible ID duplication</h4>
+            <p>
+              In lines 84-88, the method for generation of IDs introduces the
+              possibilty of duplicating IDs, because there is no check to see if
+              an ID of the same value already exists in the data already stored.
+              Because the likelyhood of randomly generating two identical 6
+              diget numbers is very unlikely, the bug is not critical.
+              Nevertheless, it would create critical errors for the application
+              so we have fixed this bug. We deleted lines 84-88 which originally
+              generated an ID. Then modified line 104 to generate an ID using
+              Date.now(), this method also generates an ID only when needed,
+              therefor improving the efficiency of the code.
+            </p>
+            <p><i>Original code</i></p>
+            <img src="assets/images/bugfix2-broken.png" alt="code for bugfix" />
+            <p><i>Updated code</i></p>
+            <img src="assets/images/bugfix2-fixed.png" alt="code for bugfix" />
+
+            <h4 id="bf-3">No.3 Bug Fix - HTML element missing ID</h4>
+            <p>
+              Within the section.main html element, the toggle all button input
+              element did not have an id that the javascript code uses to add an
+              event listener when the application starts. As a result, the
+              toggle all button failed to work. This bug was fixed by adding
+              <i>id="toggle-all"</i> into the input element on line 18.
+            </p>
+            <p><i>Original code</i></p>
+            <img
+              class="width-100"
+              src="assets/images/bugfix3-broken.png"
+              alt="code for bugfix"
+            />
+            <p><i>Updated code</i></p>
+            <img
+              class="width-100"
+              src="assets/images/bugfix3-fix.png"
+              alt="code for bugfix"
+            />
+          </section>
+        </div>
+      </div>
+    </div>
+    <script src="assets/anchor.js"></script>
+    <script src="assets/split.js"></script>
+    <script src="assets/site.js"></script>
+  </body>
+</html>

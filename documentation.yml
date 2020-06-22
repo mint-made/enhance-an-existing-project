@@ -1,0 +1,25 @@
+toc:
+  - name: Getting Started
+    description: All you need to know to get started! <img src="../images/todos.png" style="width:100%;">
+  - name: Bug Fixes
+    description: bugs that have been fixed
+  - name: Jasmine Tests
+    description: Unit tests that have been added to the project
+  - name: Performance Audit
+    description: Comparing the website to competitors
+  - name: Technical Documentation
+    description: Here is the technical documentation for the project 8 - Enhance an existing project.
+  - Todo
+  - Controller
+  - Model
+  - View
+  - Store
+  - Template
+  - name: helper
+    children:
+    - qs
+    - qsa
+    - $on
+    - $delegate
+    - $parent
+  

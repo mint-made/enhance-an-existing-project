@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-framework="javascript">
+  <head>
+    <meta charset="utf-8" />
+    <title>Todo | App</title>
+    <link rel="stylesheet" href="required_modules/todomvc-common/base.css" />
+    <link rel="stylesheet" href="required_modules/todomvc-app-css/index.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li><a class="active" href="index.html">Todo App</a></li>
+        <li>
+          <a href="./documentation-codebase/index.html">Documentation</a>
+        </li>
+        <li>
+          <a href="./test/SpecRunner.html">Tests</a>
+        </li>
+        <li>
+          <a href="./performance-audit-codebase/index.html"
+            >Performance Audit</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <section class="todoapp">
+      <header class="header">
+        <h1>todos</h1>
+        <input
+          class="new-todo"
+          placeholder="What needs to be done?"
+          autofocus
+        />
+      </header>
+      <section class="main">
+        <input id="toggle-all" class="toggle-all" type="checkbox" />
+        <label for="toggle-all">Mark all as complete</label>
+        <ul class="todo-list"></ul>
+      </section>
+      <footer class="footer">
+        <span class="todo-count"></span>
+        <ul class="filters">
+          <li>
+            <a href="#/" class="selected">All</a>
+          </li>
+          <li>
+            <a href="#/active">Active</a>
+          </li>
+          <li>
+            <a href="#/completed">Completed</a>
+          </li>
+        </ul>
+        <button class="clear-completed">Clear completed</button>
+      </footer>
+    </section>
+    <footer class="info">
+      <p>Double-click to edit a todo</p>
+      <p>Created by Oscar Godson</p>
+      <p>Refactored by Christoph Burgmer</p>
+    </footer>
+    <script src="required_modules/todomvc-common/base.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
